@@ -42,7 +42,7 @@ function Profile({ toggleModal, searchId }) {
         <>
         <AiOutlineCloseCircle  onClick={toggleModal} className='closespro' />
 
-            <img src={data.picture ? `https://drive.google.com/thumbnail?id=${data.picture.match(/\/d\/(.*?)\//)[1]}` : ''} alt="" className='imagepro' />
+            <img src={data.picture ? data.picture.replace('open', 'thumbnail') : ''} alt="" className='imagepro' />
         <p><span>Name:</span> {data.name}</p>
         <p><span>ROLL NUMBER : </span>{data.roll_no}</p>
         <p><span>BATCH OF {parseInt(data.year)+4} </span></p>

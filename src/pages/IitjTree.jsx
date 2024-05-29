@@ -13,38 +13,38 @@ const IitjTree = ({ data }) => {
   const siblings = data.sibling
   console.log(data)
   const treeDatas = [];
-  // const parentNode = {
-  //   name:parentid.name,
-  //   rollNo: parentid.roll_no,
-  //   picture: parentid.picture,
-  //   children: []
-  // };
-  // const studentNode = {
-  //   name:studentid.name,
-  //   rollNo: studentid.roll_no,
-  //   picture: studentid.picture,
-  //   children: []
-  // };
-  // parentNode.children.push(studentNode);
-  // siblings.forEach(sibling => {
-  //   const siblingNode = {
-  //   name:sibling.name,
-  //     rollNo: sibling.roll_no,
-  //     picture: sibling.picture,
-  //     children: []
-  //   };
-  //   parentNode.children.push(siblingNode);
-  // });
-  // children.forEach(child => {
-  //   const childNode = {
-  //   name:child.name,
-  //     rollNo: child.roll_no,
-  //     picture: child.picture,
-  //   };
-  //   studentNode.children.push(childNode);
-  // });
+  const parentNode = {
+    name:parentid.name,
+    rollNo: parentid.roll_no,
+    picture: parentid.picture,
+    children: []
+  };
+  const studentNode = {
+    name:studentid.name,
+    rollNo: studentid.roll_no,
+    picture: studentid.picture,
+    children: []
+  };
+  parentNode.children.push(studentNode);
+  siblings.forEach(sibling => {
+    const siblingNode = {
+    name:sibling.name,
+      rollNo: sibling.roll_no,
+      picture: sibling.picture,
+      children: []
+    };
+    parentNode.children.push(siblingNode);
+  });
+  children.forEach(child => {
+    const childNode = {
+    name:child.name,
+      rollNo: child.roll_no,
+      picture: child.picture,
+    };
+    studentNode.children.push(childNode);
+  });
 
-  // treeDatas.push(parentNode);
+  treeDatas.push(parentNode);
   // console.log(treeDatas)
   const [searchId, setSearchId] = useState(null);
   const [showModal, setShowModal] = useState(false);
