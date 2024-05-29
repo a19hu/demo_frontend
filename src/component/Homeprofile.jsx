@@ -25,11 +25,10 @@ const Homeprofile = ({rollNo}) => {
   }
   useEffect(() => {
     if (!loading && data.picture != null) {
-      const formattedUrl = `https://drive.google.com/thumbnail?id=${data.picture.match(/\/d\/(.*?)\//)[1]}`;
+      const formattedUrl = data.picture.replace('open', 'thumbnail');
+
       setImageUrl(formattedUrl);
-      
-      console.log('this is formal',formattedUrl);
-      console.log('this is image',imageUrl)
+      console.log('this is image',data.picture)
     }
 
   }, [data]);

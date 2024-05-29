@@ -34,7 +34,7 @@ const processNode = (node, parentId = null) => {
      id: node.rollNo,
     user: node.name,
      description: node.rollNo,
-     img: node.picture ? `https://drive.google.com/thumbnail?id=${node.picture.match(/\/d\/(.*?)\//)[1]}` : defaultimage
+     img: node.picture ? node.picture.replace('open', 'thumbnail'): defaultimage
   };
   nodes.push(nodeData);
     if (node.parentId) {

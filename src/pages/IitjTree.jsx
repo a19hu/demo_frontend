@@ -11,39 +11,40 @@ const IitjTree = ({ data }) => {
   const parentid = data.parent
   const children = data.children
   const siblings = data.sibling
+  console.log(data)
   const treeDatas = [];
-  const parentNode = {
-    name:parentid.name,
-    rollNo: parentid.roll_no,
-    picture: parentid.picture,
-    children: []
-  };
-  const studentNode = {
-    name:studentid.name,
-    rollNo: studentid.roll_no,
-    picture: studentid.picture,
-    children: []
-  };
-  parentNode.children.push(studentNode);
-  siblings.forEach(sibling => {
-    const siblingNode = {
-    name:sibling.name,
-      rollNo: sibling.roll_no,
-      picture: sibling.picture,
-      children: []
-    };
-    parentNode.children.push(siblingNode);
-  });
-  children.forEach(child => {
-    const childNode = {
-    name:child.name,
-      rollNo: child.roll_no,
-      picture: child.picture,
-    };
-    studentNode.children.push(childNode);
-  });
+  // const parentNode = {
+  //   name:parentid.name,
+  //   rollNo: parentid.roll_no,
+  //   picture: parentid.picture,
+  //   children: []
+  // };
+  // const studentNode = {
+  //   name:studentid.name,
+  //   rollNo: studentid.roll_no,
+  //   picture: studentid.picture,
+  //   children: []
+  // };
+  // parentNode.children.push(studentNode);
+  // siblings.forEach(sibling => {
+  //   const siblingNode = {
+  //   name:sibling.name,
+  //     rollNo: sibling.roll_no,
+  //     picture: sibling.picture,
+  //     children: []
+  //   };
+  //   parentNode.children.push(siblingNode);
+  // });
+  // children.forEach(child => {
+  //   const childNode = {
+  //   name:child.name,
+  //     rollNo: child.roll_no,
+  //     picture: child.picture,
+  //   };
+  //   studentNode.children.push(childNode);
+  // });
 
-  treeDatas.push(parentNode);
+  // treeDatas.push(parentNode);
   // console.log(treeDatas)
   const [searchId, setSearchId] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -69,7 +70,7 @@ const IitjTree = ({ data }) => {
                 <div className="container_info">
                   <div className="hovertext" onClick={() => toggleModal(item.rollNo)}>{item.name.slice(0,15) + ''}</div>
                   <div className="info">
-                    <img src={item.picture ? `https://drive.google.com/thumbnail?id=${item.picture.match(/\/d\/(.*?)\//)[1]}` : profileimg } onClick={() => toggleModal(item.rollNo)} alt=""  />
+                    <img src={item.picture ? item.picture.replace('open', 'thumbnail') : profileimg } onClick={() => toggleModal(item.rollNo)} alt=""  />
                   </div>
 
 

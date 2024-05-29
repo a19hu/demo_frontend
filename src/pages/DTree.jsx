@@ -25,7 +25,7 @@ console.log(roll)
 
     fetchData();
   }, []);
- 
+ console.log(data)
   if (isLoading) return <p>Loading</p>;
   if (error) return <p style={{alignContent:"center",display:"flex",justifyContent:"center",alignItems:"center"}}>connection error....</p>;
   
