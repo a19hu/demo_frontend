@@ -23,23 +23,26 @@ function Profile({ toggleModal, searchId }) {
   var { loading, error, data } = useQuery(FILMS_QUERY, {
     variables: { searchId },
   });
-  if (loading) return <p>Loading...</p>
   if (error) return <p>Connection Error</p>;
   const toggleModals = (Id) => {
     updatesearch(Id)
     console.log(Id)
   }
-  data = data.student_search[0]
+  if(!loading){
+
+    data = data.student_search[0]
+  }
 
   console.log(data)
   // console.log('jyotin',data.studentSearch[0].picture)
   return (
     <div className="modalprofile">
       <div className="modal-contentprofile">
+        {!loading ? 
+        <>
         <AiOutlineCloseCircle  onClick={toggleModal} className='closespro' />
 
-        <img src={`http://172.31.49.27:8000/media/${data.picture}`} alt="" className='imagepro' />
-        {/* </Link> */}
+            <img src={data.picture ? `https://drive.google.com/thumbnail?id=${data.picture.match(/\/d\/(.*?)\//)[1]}` : ''} alt="" className='imagepro' />
         <p><span>Name:</span> {data.name}</p>
         <p><span>ROLL NUMBER : </span>{data.roll_no}</p>
         <p><span>BATCH OF {parseInt(data.year)+4} </span></p>
@@ -50,7 +53,9 @@ function Profile({ toggleModal, searchId }) {
         <Link to='/search' onClick={toggleModal}>
                 <FaChevronRight onClick={() => toggleModals(data.roll_no)} className='iconbutton' />
         </Link>
-
+          </>
+        :
+"loading"}
       </div>
     </div>
   )

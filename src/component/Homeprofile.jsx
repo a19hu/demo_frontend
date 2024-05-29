@@ -2,9 +2,9 @@ import React,{useEffect,useState} from 'react'
 import '../Style/profile.css'
 import '../Style/homeprofile.css'
 import { useQuery, gql, } from "@apollo/client";
-
+import demo from '../image/download.jpeg'
 const Homeprofile = ({rollNo}) => {
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState(demo);
 
   const FILMS_QUERY = gql`
  query Query($rollNo: String!) {
@@ -25,7 +25,7 @@ const Homeprofile = ({rollNo}) => {
   }
   useEffect(() => {
     if (!loading && data.picture != null) {
-      const formattedUrl = `https://drive.google.com/uc?export=view&id=${data.picture.match(/\/d\/(.*?)\//)[1]}`;
+      const formattedUrl = `https://drive.google.com/thumbnail?id=${data.picture.match(/\/d\/(.*?)\//)[1]}`;
       setImageUrl(formattedUrl);
       
       console.log('this is formal',formattedUrl);
@@ -39,8 +39,7 @@ const Homeprofile = ({rollNo}) => {
               {loading ? <p>Loading...</p> : 
               <>
             <div className='containerimag'>
-              {/* //https://drive.google.com/file/d/1YLh8Y9VaYAyDQ9v9QAiqNnBKT0USMzC3/view */}
-              <img src='https://drive.google.com/uc?export=view&id=1YLh8Y9VaYAyDQ9v9QAiqNnBKT0USMzC3' alt="" />
+              <img src={imageUrl} alt="" />
             </div>
             <div className='detailcontainer'> 
 

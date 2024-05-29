@@ -4,7 +4,6 @@ import * as THREE from 'three';
 import axios from 'axios';
 import defaultimage from '../image/download.jpeg'
 import logo from '../image/logo.png'
-import background from "../image/background.jpeg";
 
 const ImageTree = () => {
   const [data, setData] = useState([]);
@@ -28,14 +27,14 @@ const ImageTree = () => {
     img:logo
   }];
 const links = [];
-
+console.log('data',data)
 
 const processNode = (node, parentId = null) => {
    const nodeData = {
      id: node.rollNo,
     user: node.name,
      description: node.rollNo,
-    img: node.picture ? `http://172.31.49.27:8000/${node.picture}`  : defaultimage
+     img: node.picture ? `https://drive.google.com/thumbnail?id=${node.picture.match(/\/d\/(.*?)\//)[1]}` : defaultimage
   };
   nodes.push(nodeData);
     if (node.parentId) {
@@ -57,16 +56,7 @@ const graphdata=
     nodes: nodes,
     links: links
   }
-  const mystyle={
-    backgroundImage: `url(${background})`,
-    backdropFilter: "blur(6px)",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    height: "100vh",
-    opacity: '0.8',
-   };
-  console.log(graphdata)
-
+console.log(graphdata)
   return (
     <div >
         <ForceGraph3D

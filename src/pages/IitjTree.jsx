@@ -69,7 +69,7 @@ const IitjTree = ({ data }) => {
                 <div className="container_info">
                   <div className="hovertext" onClick={() => toggleModal(item.rollNo)}>{item.name.slice(0,15) + ''}</div>
                   <div className="info">
-                  <img src={item.picture? `http://172.31.49.27:8000/media/${item.picture}` :profileimg } onClick={() => toggleModal(item.rollNo)} alt=""  />
+                    <img src={item.picture ? `https://drive.google.com/thumbnail?id=${item.picture.match(/\/d\/(.*?)\//)[1]}` : profileimg } onClick={() => toggleModal(item.rollNo)} alt=""  />
                   </div>
 
 
