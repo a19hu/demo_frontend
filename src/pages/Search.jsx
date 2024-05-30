@@ -4,6 +4,8 @@ import "../Style/serachreasult.css";
 import IitjTree from './IitjTree';
 import { useData } from '../context/DataContext';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Search = () => {
   const { searchtexts } = useData()
@@ -57,13 +59,24 @@ const Search = () => {
   if(!loading){
 
     const datas = data.student_search[0].parentId
-    if(datas == null){
+    if(datas == null || data.parent == null){
+      // toast.success("Successfully email send",
+      //   {
+      //     position: "top-center",
+      //     autoClose: 5000,
+      //     closeOnClick: true,
+      //     progress: undefined,
+      //     hideProgressBar: false,
+      //     pauseOnHover: true,
+      //   }
+      // );  
+      // navigate('/');
      return  navigate('/');
     }
   }
 
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Loading...</p>; 
   if (error) return <p> connection error...</p>;
   return (
     <div className='topmargin'>
@@ -71,6 +84,7 @@ const Search = () => {
         <div className='treediv'>
           <IitjTree data={data} />
         </div>
+        <ToastContainer />
 
       </div>
 

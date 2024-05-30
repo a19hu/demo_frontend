@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useQuery, gql } from "@apollo/client";
 import { useNavigate } from 'react-router-dom';
 import { useData } from "../context/DataContext";
+import 'react-toastify/dist/ReactToastify.css';
 function Navbar() {
   const navigate = useNavigate();
   const { setSearchtext, updateDataId } = useData();
@@ -33,11 +34,22 @@ function Navbar() {
   });
   // if (error) return <p>Error </p>;
   const toggleModal=(Id)=>{
+    // toast.success("Successfully email send",
+    //   {
+    //     position: "top-center",
+    //     autoClose: 5000,
+    //     closeOnClick: true,
+    //     progress: undefined,
+    //     hideProgressBar: false,
+    //     pauseOnHover: true,
+    //   }
+    // ); 
     updateDataId(Id)
     console.log(Id)
     navigate('/search');
     setParentId('')
     setShow(!show)
+     
   }
   return (
     <>{
@@ -70,7 +82,9 @@ function Navbar() {
 
           </div>
          
+          <ToastContainer />
       </div>
+
     </div>
     :
     <>
@@ -87,7 +101,6 @@ function Navbar() {
               onChange={(e) => setParentId(e.target.value)}
             />
         </div>
-          <ToastContainer />
 
     </div>
     {parentId ? 

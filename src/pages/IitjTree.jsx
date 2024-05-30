@@ -2,10 +2,16 @@ import '../Style/tree.css'
 import React, { useState } from 'react'
 import Profile from "../component/Profile";
 import profileimg from '../image/download.jpeg'
+import { useNavigate } from 'react-router-dom';
 
 
 
 const IitjTree = ({ data }) => {
+  const navigate = useNavigate();
+  // if (data.parentid === null) {
+  //   return navigate('/');
+
+  // }
   // console.log(data)
   const studentid = data.student
   const parentid = data.parent
@@ -13,6 +19,7 @@ const IitjTree = ({ data }) => {
   const siblings = data.sibling
   console.log(data)
   const treeDatas = [];
+ 
   const parentNode = {
     name:parentid.name,
     rollNo: parentid.roll_no,
