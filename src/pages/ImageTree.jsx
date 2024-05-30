@@ -10,7 +10,7 @@ const ImageTree = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`/api/alltree/`);
+        const response = await axios.get(`https://family-tree-yiq8.onrender.com/api/alltree/`);
         setData(response.data)
       } catch (error) {
         // setError(error);
