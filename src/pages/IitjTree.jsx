@@ -17,7 +17,6 @@ const IitjTree = ({ data }) => {
   const parentid = data.parent
   const children = data.children
   const siblings = data.sibling
-  console.log(data)
   const treeDatas = [];
  
   const parentNode = {
@@ -71,7 +70,7 @@ const IitjTree = ({ data }) => {
       <>
         <ul>
           {treeDatas.map((item, index) =>
-            <li className={item.name + index}>
+            <li className={item.name + index} key={index}>
               <div className="container" >
 
                 <div className="container_info">

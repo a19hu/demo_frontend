@@ -14,7 +14,7 @@ function Navbar() {
   const navigate = useNavigate();
   const { setSearchtext, updateDataId } = useData();
   const [show, setShow] = useState(true);
-  const [parentId, setParentId] = useState(null);
+  const [parentId, setParentId] = useState('');
   
   const handleback=()=>{
     setParentId('')
@@ -45,7 +45,6 @@ function Navbar() {
     //   }
     // ); 
     updateDataId(Id)
-    console.log(Id)
     navigate('/search');
     setParentId('')
     setShow(!show)
@@ -95,7 +94,7 @@ function Navbar() {
          
             <input
               type="text"
-              class="searchInput"
+              className="searchInput"
               placeholder="Search ..."
               value={parentId}
               onChange={(e) => setParentId(e.target.value)}

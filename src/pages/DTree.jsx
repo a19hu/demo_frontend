@@ -10,7 +10,6 @@ const DTree = () => {
   const [error, setError] = useState(null);
   const [roll,setroll]=useState()
   const [showModal, setShowModal] = useState(false);
-console.log(roll)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,7 +24,6 @@ console.log(roll)
 
     fetchData();
   }, []);
- console.log(data)
   if (isLoading) return <p>Loading</p>;
   if (error) return <p style={{alignContent:"center",display:"flex",justifyContent:"center",alignItems:"center"}}>connection error....</p>;
   
@@ -87,8 +85,8 @@ console.log(roll)
       //  fontSize={15}
       //  fontWeight="bold"
        textAnchor="middle"
-       dy="29 em"
-       dx='0 em'
+       dy="24"
+       dx='0'
        className='text_'
       >{name} </text>
       {/* {pathElements} */}
