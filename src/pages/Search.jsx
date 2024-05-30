@@ -60,30 +60,30 @@ const Search = () => {
 
     const datas = data.student_search[0].parentId
     if(datas == null || data.parent == null){
-      // toast.success("Successfully email send",
-      //   {
-      //     position: "top-center",
-      //     autoClose: 5000,
-      //     closeOnClick: true,
-      //     progress: undefined,
-      //     hideProgressBar: false,
-      //     pauseOnHover: true,
-      //   }
-      // );  
+      toast.success("Successfully email send",
+        {
+          position: "top-center",
+          autoClose: 5000,
+          closeOnClick: true,
+          progress: undefined,
+          hideProgressBar: false,
+          pauseOnHover: true,
+        }
+      );  
       // navigate('/');
-     return  navigate('/');
+    //  return  navigate('/');
     }
   }
 
 
-  if (loading) return <p>Loading...</p>; 
+  // if (loading) return <p>Loading...</p>; 
   if (error) return <p> connection error...</p>;
   return (
     <div className='topmargin'>
       <div className="text">
         <div className='treediv'>
-          <IitjTree data={data} />
-        </div>
+          {loading ? <p>Loading...</p> : data.student_search[0].parentId == null || data.parent == null ? navigate('/') : <IitjTree data={data} />}
+              </div>
         <ToastContainer />
 
       </div>

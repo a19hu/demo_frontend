@@ -29,14 +29,14 @@ const ImageTree = () => {
     img:logo
   }];
 const links = [];
-console.log('data',data)
+// console.log('data',data[1])
 
-const processNode = (node, parentId = null) => {
+const processNode = (node, parentId) => {
    const nodeData = {
      id: node.rollNo,
     user: node.name,
      description: node.rollNo,
-     img: node.picture ? node.picture.replace('open', 'thumbnail'): defaultimage
+     img: node.picture ? defaultimage : defaultimage
   };
   nodes.push(nodeData);
     if (node.parentId) {
@@ -51,14 +51,29 @@ const processNode = (node, parentId = null) => {
   });
 }
 data.forEach(element => {
-  processNode(element)
+  const id= element.parentId ? element.parentId : 'All'
+  if(element.parentId){
+    const nodeData = {
+      id: element.rollNo,
+      user: element.name,
+      description: element.rollNo,
+      img: element.picture ? defaultimage : defaultimage
+    };
+    nodes.push(nodeData);
+    links.push({ source: 'All', target: element.rollNo });
+  }
+  else{
+
+    processNode(element)
+  }
+  console.log(id)
 });
 const graphdata=
   {
     nodes: nodes,
     links: links
   }
-console.log(graphdata)
+// console.log(graphdata)
   return (
     <div >
         <ForceGraph3D
