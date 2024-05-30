@@ -36,16 +36,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": {
-    "/search": {
-      "target": "https://family-tree-yiq8.onrender.com",
-      "changeOrigin": true
-    },
-    "/jobs": {
-      "target": "https://drive.google.com",
-      "changeOrigin": true
-    }
-  },
+  "proxy": "https://family-tree-yiq8.onrender.com",
   "eslintConfig": {
     "extends": [
       "react-app",
