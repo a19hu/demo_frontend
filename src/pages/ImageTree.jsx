@@ -57,7 +57,7 @@ data.forEach(element => {
       id: element.rollNo,
       user: element.name,
       description: element.rollNo,
-      img: element.picture ? defaultimage : defaultimage
+      img: element.picture ? element.picture : defaultimage
     };
     nodes.push(nodeData);
     links.push({ source: 'All', target: element.rollNo });

@@ -111,7 +111,7 @@ function Navbar() {
                 {
                   loading ? <p>Loading...</p> :
                        data.student_search.length > 0  ?
-              data.student_search.map((student, index) => (
+              data.student_search.slice(0,5).map((student, index) => (
                 <div key={index}
                   onClick={() => toggleModal(student.roll_no)}
                 >
