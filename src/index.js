@@ -7,7 +7,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 
 const client = new ApolloClient({
-  uri: `https://family-tree-yiq8.onrender.com/graphql`, // Replace with your GraphQL server URL
+  uri: `/graphql`,
   cache: new InMemoryCache()
 });
 const root = ReactDOM.createRoot(document.getElementById('root'));

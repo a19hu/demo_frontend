@@ -47,7 +47,7 @@
   
 
 
-  .searchtext {
+  .searchtext  {
    color: aliceblue;
    text-decoration: none;
    justify-content: center;
@@ -55,7 +55,7 @@
     font-size: 1.3rem;
     text-transform: capitalize;
   }
-  .searchtext:hover{
+  .searchtext div:hover{
     cursor: pointer;
     text-decoration: underline;
 

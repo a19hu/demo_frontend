@@ -15,6 +15,7 @@
     "d3": "^7.8.5",
     "dotenv": "^16.4.5",
     "graphql": "^16.8.1",
+    "http-proxy-middleware": "^3.0.0",
     "react": "^18.2.0",
     "react-d3-tree": "^3.6.2",
     "react-dom": "^18.2.0",
@@ -34,6 +35,16 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "proxy": {
+    "/search": {
+      "target": "https://family-tree-yiq8.onrender.com",
+      "changeOrigin": true
+    },
+    "/jobs": {
+      "target": "https://drive.google.com",
+      "changeOrigin": true
+    }
   },
   "eslintConfig": {
     "extends": [
